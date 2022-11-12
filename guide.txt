@@ -36,7 +36,6 @@ Exemplo:
 > db.pessoas.insertOne( {nome: "Manhattan", idade: 70, profissao: "Engenheiro Nuclear", esta_empregado: true } )
 
 
-
 Consultar collections da base dos dados:
  > show collections
  
@@ -78,3 +77,16 @@ Exemplo:
 
 Resultado: 
 Apresentação de todas pessoas empregadas.
+
+
+
+
+Consultar somente um registro [execução sem comando, desponde com o primeiro registro da collection]: 
+.findOne()
+
+
+Consulta um registro espécifico. (Passar seu atributo no parâmetro.)
+.findOne( { <key>: value } )
+
+Exemplo: 
+db.pessoas.find( { nome: "Maria" } )
