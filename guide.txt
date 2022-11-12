@@ -60,6 +60,13 @@ Exemplo:
 db.pessoas.find()
 
 
+Consultar todos os dados com parâmetro: 
+find( {key: value} )
+
+Exemplo: 
+db.pessoas.find( { esta_empregado: true, nome: "João" } )
+
+
 Qtde de registros: 
 .find().count()
 
