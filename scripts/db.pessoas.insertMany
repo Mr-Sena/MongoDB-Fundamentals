@@ -1,0 +1,4 @@
+db.pessoas.insertMany([
+    {nome: "João", idade: 29, profissao: "Marceneiro", esta_empregado: true}, 
+    {nome: "Maria", idade: 31, profissao: "Vendedora", esta_empregado: false}
+])

@@ -1,0 +1,80 @@
+Modelagem da dados noSQL
+
+ - Curso de MongoDB fundamental | Aprenda MongoDB em 1 hora - 2021
+[ youtube.com/watch?v=x9tC0eK0GtA ]
+(20:58)
+
+
+Commands:
+
+Criar um banco de dados MongoDB: 
+ > use <db-name>
+ 
+Exemplo:
+use pessoaData
+
+
+Nesse momento o banco de dados é criado temporariamente (ele ainda não existe), 
+para concluir sua criação é necessário a inserção de novos dados.
+
+
+Exibis todos os banco de dados:
+ > show dbs
+
+
+
+Collections (Conjunto equivalente a tabela do modelo relacional)
+A sua criação é realizado automaticamente após a inserção de um novo dado.
+
+
+
+
+Adicionar novo dados através de interface de linha de comando: 
+> db.<nome-base-de-dados>.insertOne( <dados-formato-JSON> )
+
+Exemplo: 
+> db.pessoas.insertOne( {nome: "Manhattan", idade: 70, profissao: "Engenheiro Nuclear", esta_empregado: true } )
+
+
+
+Consultar collections da base dos dados:
+ > show collections
+ 
+ 
+
+Adicionar mais de um elemento: 
+.insertMany( [ {item: 1}, {item: 2}, ... ] )
+
+Exemplo:
+db.pessoas.insertMany([
+    {nome: "João", idade: 29, profissao: "Marceneiro", esta_empregado: true}, 
+    {nome: "Maria", idade: 31, profissao: "Vendedora", esta_empregado: false}
+])
+
+
+
+Consultar todos os dados: 
+.find()
+
+Exemplo:
+
+db.pessoas.find()
+
+
+Qtde de registros: 
+.find().count()
+
+
+Apresentação estruturada dos dados:
+.find().pretty()
+
+
+
+Parâmetro de consulta: 
+db.<collection>.find( { <parâmetro>: <valor-desejado> } )
+
+Exemplo: 
+> db.pessoas.find( { esta_empregado: true } )
+
+Resultado: 
+Apresentação de todas pessoas empregadas.
