@@ -2,7 +2,7 @@ Modelagem da dados noSQL
 
  - Curso de MongoDB fundamental | Aprenda MongoDB em 1 hora - 2021
 [ youtube.com/watch?v=x9tC0eK0GtA ]
-(20:58)
+(33:10)
 
 
 Commands:
@@ -30,10 +30,12 @@ A sua criação é realizado automaticamente após a inserção de um novo dado.
 
 
 Adicionar novo dados através de interface de linha de comando: 
-> db.<nome-base-de-dados>.insertOne( <dados-formato-JSON> )
+> db.<collection-name>.insertOne( <dados-formato-JSON> )
 
 Exemplo: 
 > db.pessoas.insertOne( {nome: "Manhattan", idade: 70, profissao: "Engenheiro Nuclear", esta_empregado: true } )
+
+db.pessoas.insertOne( {nome: "Jones", idade: 50, profissao: "Arqueólogo", esta_empregado: true } )
 
 
 Consultar collections da base dos dados:
@@ -88,7 +90,7 @@ Apresentação de todas pessoas empregadas.
 
 
 
-Consultar somente um registro [execução sem comando, desponde com o primeiro registro da collection]: 
+Consultar somente um registro [execução sem comando, responde com o primeiro registro da collection]: 
 .findOne()
 
 
@@ -97,3 +99,66 @@ Consulta um registro espécifico. (Passar seu atributo no parâmetro.)
 
 Exemplo: 
 db.pessoas.find( { nome: "Maria" } )
+
+
+
+
+
+
+Atualização dos dados - registro único: 
+.updateOne( { <key>: <value> }, { $set: { <key>: <value> } } )
+
+ - Nesse caso, a primeira chave e valor são correspondências para a consulta.
+ - a segunda chave e valor, atributos que serão modificados.
+ 
+Exemplo: 
+
+db.pessoas.updateOne( { nome: "Maria" }, { $set: { esta_empregado: true} } )
+
+
+
+Inserir/Atualizar um campo para os dados: 
+
+.updateMany(<...>)
+
+
+
+Exemplo: adicionar um novo campo para todos registro da base dos dados:
+> db.pessoas.updateMany({}, { $set: { salario: 7000 } })
+
+
+Exemplo: 
+ > db.pessoas.updateMany({ country: "BR", esta_empregado: true }, { $set: { salario: 7500  } })
+
+OBS: se passar dois valores para o mesmo parâmetro, somente o último valor será o cirtério final.
+
+
+
+
+Deletar um usuário: 
+
+db.pessoas.deleteOne( {nome: "José"} )
+
+OBS: Exclusão do primeiro "José" que for encontrado na base dos dados.
+
+Excluir várias dados: 
+.deleteMany(<...>)
+
+
+
+
+
+Operação de comparação: 
+
+maior que: $gt: <valor>
+maior ou igual: $gte: <valor>
+menor que: $lt: <valor>
+menor ou igual: $lte: <valor>
+
+Buscar pessoas com mais de 30 anos na base de dados: 
+exemplo: db.pessoas.find( idade: {$gt: 30} )
+
+
+Disclaimer: gt = greater than (maior que)
+Disclaimer: lt = less than (menor que)
+
