@@ -1,0 +1,12 @@
+db.pessoas.insertOne( {
+    nome: "Paula", 
+    idade: 43, 
+    hobbies: ["Correr, "Ler", "Trilhas"],
+    esta_empregado: true, 
+    data_cadastro: new Date(),
+    caracteristicas: {
+        cor_olhos: "Azuis", 
+        altura: 1.82, 
+        fisicamente_ativo: true
+    }
+})
