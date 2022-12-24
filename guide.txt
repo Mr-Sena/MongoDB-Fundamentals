@@ -2,7 +2,7 @@ Modelagem da dados noSQL
 
  - Curso de MongoDB fundamental | Aprenda MongoDB em 1 hora - 2021
 [ youtube.com/watch?v=x9tC0eK0GtA ]
-(33:10)
+(39:10)
 
 
 Commands:
@@ -162,3 +162,33 @@ exemplo: db.pessoas.find( idade: {$gt: 30} )
 Disclaimer: gt = greater than (maior que)
 Disclaimer: lt = less than (menor que)
 
+
+
+
+Uperadores de atualização
+
+$inc: Incrementar um valor (adicionar ou reduzir)
+
+Exemplo: 
+> db.pessoas.updateOne( { nome: "Paula" }, { $inc: { salario: 2000} } )s
+
+
+
+Criar um novo index para o banco de dados:
+> db.<collection-name>.createIndex( { "<nome-do-campo>": 1 } )
+
+Exemplo:
+> db.pessoas.createIndex( { "nome": 1 } )
+
+
+
+Consulta indexes do para o banco de dados: 
+db.pessoas.getIndexes()
+
+
+Excluir um index: 
+
+db.pessoas.dropIndex( "index-name" )
+
+Exemplo: 
+> db.pessoas.dropIndex("nome_1")
