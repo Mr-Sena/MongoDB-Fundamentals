@@ -192,3 +192,16 @@ db.pessoas.dropIndex( "index-name" )
 
 Exemplo: 
 > db.pessoas.dropIndex("nome_1")
+
+
+
+Excluir uma collection: 
+db.<collection>.drop
+
+Exemplo:
+db.pessoas.drop()
+
+
+
+Excluir um db: 
+db.dropDatabase()
